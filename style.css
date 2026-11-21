@@ -379,6 +379,12 @@ main section { position: relative; }
 .lazzar-plane { position: relative; z-index: 3; width: min(980px, 92vw); mix-blend-mode: lighten; will-change: transform;
   -webkit-mask-image: radial-gradient(ellipse 46% 40% at 52% 52%, #000 45%, transparent 100%);
   mask-image: radial-gradient(ellipse 46% 40% at 52% 52%, #000 45%, transparent 100%); }
+.lazzar-3d { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 3; display: none; touch-action: pan-y; }
+.has-3d .lazzar-3d { display: block; }
+.has-3d .lazzar-plane { display: none; }
+@media (pointer: fine) { .has-3d .lazzar-3d { cursor: grab; } .has-3d.is-dragging .lazzar-3d { cursor: grabbing; } }
+.drag-hint { display: none; position: absolute; z-index: 4; right: var(--gutter); bottom: 44px; font: 500 .66rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+@media (pointer: fine) and (min-width: 861px) { .has-3d .drag-hint { display: block; } }
 .radar-rings { position: absolute; inset: 0; display: grid; place-items: center; }
 .radar-rings i { position: absolute; border: 1px solid rgba(99,172,210,.16); border-radius: 50%; }
 .radar-rings i:nth-child(1) { width: 30vmin; height: 30vmin; }
