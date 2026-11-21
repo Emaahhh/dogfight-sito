@@ -300,6 +300,8 @@
       <div class="radar-rings" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
       <div class="speed-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
       <img class="lazzar-plane" src="assets/lazzar.png" alt="Render del prototipo LAZZAR-1, aereo da ricognizione ipersonico">
+      <canvas class="lazzar-3d" role="img" aria-label="Modello 3D interattivo del prototipo LAZZAR-1"></canvas>
+      <span class="drag-hint">↔ Trascina per ruotare il modello 3D</span>
       <span class="tag">● In fase sperimentale</span>
       <div class="target" aria-hidden="true"><i></i><i></i><i></i><i></i><span>TRK 001 // LOCK</span></div>
     </div>
@@ -431,5 +433,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="main.js"></script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module" src="lazzar3d.js"></script>
 </body>
 </html>
