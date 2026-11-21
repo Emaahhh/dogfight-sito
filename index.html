@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOGFIGHT — Difesa Aerea Italiana</title>
+<meta name="description" content="DOGFIGHT progetta motori, prototipi e sistemi avanzati per il settore aeronautico-militare italiano. Non seguiamo il progresso. Lo pilotiamo.">
+<meta name="theme-color" content="#0b0d10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Josefin+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<!-- ============ LOGO (vettoriale originale dal PDF) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo-badge" viewBox="110 642 174 174">
+      <g class="badge">
+        <path class="bp bp-navy" d="M282.15 644.03L119.57 806.66L255.88 806.66C270.55 806.66 282.44 794.75 282.41 780.08L282.15 644.03" fill="#336488"/>
+        <path class="bp bp-sky" d="M119.83 806.66L282.41 644.03L146.1 644.03C131.43 644.03 119.54 655.94 119.57 670.62L119.83 806.66" fill="#63acd2"/>
+        <path class="bp bp-ray" d="M255.48 752.15L111.46 814.77L174.05 670.51L200.67 697.19L147 779.51L228.61 725.21L255.48 752.15" fill="#ffffff"/>
+        <path class="bp bp-wing" d="M147 644.06L282.13 644.1L282.13 779.25L255.58 779.25L255.55 752.18L228.4 752.18L228.4 725.03L200.95 697.87L174.08 697.83L174.03 670.6L147 670.65L147 644.06" fill="#4d5051"/>
+        <path class="bp bp-blk" d="M228.4 725.07H255.48V752.15H228.4Z" fill="#13161b"/>
+        <path class="bp bp-blk" d="M174.05 670.51H200.87V697.92H174.05Z" fill="#13161b"/>
+        <path class="bp bp-blk" d="M249.42 659.74L266.28 659.74L266.28 676.52L282.15 676.52L282.15 644.03L249.42 644.03C249.42 644.03 249.3 659.62 249.42 659.74" fill="#13161b"/>
+        <path class="bp bp-in" d="M152.78 649.7L152.78 665.51L199.5 665.51L205.66 665.51L205.66 697.92L240.46 663.11L240.46 648.12L152.78 648.12L152.78 649.7" fill="#2b2e30"/>
+        <path class="bp bp-in" d="M276.39 774.16L260.57 774.16L260.57 725.4L260.57 719.24L228.17 719.24L262.97 684.44L277.97 684.44L277.97 774.16L276.39 774.16" fill="#2b2e30"/>
+      </g>
+    </symbol>
+    <symbol id="logo-word" viewBox="295 647 188 159">
+      <g class="word" fill="currentColor">
+        <path class="lt" d="M300.14 714.67C299.66 714.67 299.17 714.57 298.71 714.36C297.44 713.8 296.62 712.53 296.62 711.14L296.62 653.66C296.62 652.26 297.45 650.99 298.73 650.43C300.01 649.87 301.51 650.12 302.53 651.07L334.02 680.14C334.75 680.82 335.16 681.76 335.15 682.75C335.15 683.74 334.73 684.69 333.99 685.35L302.5 713.76C301.84 714.35 301 714.67 300.14 714.67M303.67 661.71L303.67 703.22L326.4 682.7L303.67 661.71"/>
+        <path class="lt" d="M376.39 714.67C375.46 714.67 374.56 714.29 373.9 713.63L345.3 685.04C343.93 683.66 343.93 681.43 345.3 680.05L373.9 651.45C375.28 650.08 377.51 650.08 378.89 651.45L407.48 680.05C408.14 680.71 408.52 681.61 408.52 682.54C408.52 683.48 408.14 684.37 407.48 685.04L378.89 713.630C378.22 714.29 377.33 714.67 376.39 714.67M352.78 682.54L376.39 706.16L400.01 682.54L376.39 658.93L352.78 682.54"/>
+        <path class="lt" d="M480.67 684.3C480.07 682.86 478.72 681.96 477.150 681.96C477.09 681.96 477.03 681.98 476.96 681.99C476.92 681.98 476.88 681.96 476.84 681.96L453.52 681.96C451.74 681.96 450.29 683.4 450.29 685.18L450.29 686.28C450.29 688.06 451.74 689.5 453.52 689.5L469.05 689.5L452.33 706.22C451.53 707.02 450.23 707.02 449.43 706.22L427.2 684C426.4 683.19 426.4 681.89 427.2 681.09L449.43 658.87C450.23 658.07 451.53 658.07 452.33 658.87L464.3 670.84C464.91 671.45 465.72 671.79 466.58 671.79L467.2 671.79C468.53 671.79 469.67 671.02 470.18 669.79C470.69 668.56 470.42 667.22 469.48 666.28L453.16 649.96C451.91 648.7 449.85 648.7 448.6 649.96L418.29 680.26C417.04 681.52 417.04 683.57 418.29 684.83L448.6 715.13C449.23 715.76 450.05 716.07 450.88 716.07C451.71 716.07 452.53 715.76 453.16 715.13L478.96 689.33C478.99 689.3 479 689.25 479.02 689.22C479.07 689.18 479.14 689.15 479.18 689.11L479.84 688.45C480.95 687.34 481.27 685.75 480.67 684.3"/>
+        <path class="lt" d="M335.71 733.19L307.26 733.19L337.45 703.95C338.85 702.59 338.88 700.36 337.53 698.96C336.17 697.57 333.94 697.53 332.55 698.88L297.69 732.65C297.01 733.31 296.62 734.22 296.62 735.18L296.62 800.36C296.62 802.31 298.2 803.89 300.14 803.89C302.09 803.89 303.67 802.31 303.67 800.36L303.67 740.24L335.71 740.24C337.66 740.24 339.23 738.66 339.23 736.72C339.23 734.77 337.66 733.19 335.71 733.19"/>
+        <path class="lt" d="M347.41 804.11C345.47 804.11 343.89 802.53 343.89 800.58L343.89 701.79C343.89 699.85 345.47 698.27 347.41 698.27C349.36 698.27 350.94 699.85 350.94 701.79L350.94 800.58C350.94 802.53 349.36 804.11 347.41 804.11"/>
+        <path class="lt" d="M408.76 804.3C407.84 804.3 406.94 803.94 406.27 803.27L356.62 753.62C355.96 752.96 355.59 752.06 355.59 751.13C355.59 750.19 355.96 749.3 356.62 748.64L406.15 699.11C407.53 697.73 409.76 697.73 411.13 699.11C412.51 700.48 412.51 702.71 411.13 704.09L364.1 751.13L405.24 792.27L405.24 743.11L389.06 743.11C387.12 743.11 385.54 741.53 385.54 739.59C385.54 737.64 387.12 736.06 389.06 736.06L408.76 736.06C410.71 736.06 412.28 737.64 412.28 739.59L412.28 800.77C412.28 802.2 411.42 803.48 410.11 804.03C409.67 804.21 409.21 804.3 408.76 804.3"/>
+        <path class="lt" d="M444.58 723.25C442.63 723.25 441.06 724.83 441.06 726.78L441.06 767.84L424.86 762.05L424.86 701.82C424.86 699.88 423.28 698.3 421.33 698.3C419.39 698.3 417.81 699.88 417.81 701.82L417.81 800.55C417.81 802.5 419.39 804.07 421.33 804.07C423.28 804.07 424.86 802.5 424.86 800.55L424.86 769.53L441.04 775.32C441.05 775.32 441.05 775.32 441.06 775.32L441.06 800.28C441.06 802.23 442.63 803.81 444.58 803.81C446.53 803.81 448.1 802.23 448.1 800.28L448.1 726.78C448.1 724.83 446.53 723.25 444.58 723.25"/>
+        <path class="lt" d="M480.52 699.11C479.14 697.73 476.91 697.73 475.53 699.11L451.9 722.74C450.52 724.12 450.52 726.35 451.9 727.72C452.59 728.41 453.49 728.760 454.39 728.76C455.29 728.76 456.2 728.41 456.88 727.72L464.12 720.49L464.12 800.02C464.12 801.96 465.7 803.54 467.65 803.54C469.59 803.54 471.17 801.96 471.17 800.02L471.17 713.44L480.52 704.09C481.89 702.71 481.89 700.48 480.52 699.11"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ PRELOADER ============ -->
+<div class="preloader" aria-hidden="true">
+  <div class="pre-logo">
+    <svg class="pre-badge" data-logo="badge" viewBox="110 642 174 174"><use href="#logo-badge"/></svg>
+    <svg class="pre-word" data-logo="word" viewBox="295 647 188 159"><use href="#logo-word"/></svg>
+  </div>
+  <div class="pre-meta">
+    <span>SISTEMI IN AVVIO</span>
+    <span class="pre-count">000</span>
+  </div>
+  <div class="pre-bar"><span></span></div>
+</div>
+
+<div class="progress" aria-hidden="true"><span></span></div>
+<div class="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-ring"><i></i></span></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-header" id="top">
+  <a href="#hero" class="brand" aria-label="DOGFIGHT — torna all'inizio">
+    <svg class="brand-badge"><use href="#logo-badge"/></svg>
+    <svg class="brand-word"><use href="#logo-word"/></svg>
+  </a>
+  <nav id="nav" class="nav">
+    <a href="#chi-siamo">Chi siamo</a>
+    <a href="#storia">Storia</a>
+    <a href="#volto">Identità</a>
+    <a href="#obiettivi">Obiettivi</a>
+    <a href="#vision">Vision</a>
+    <a href="#lazzar">LAZZAR-1</a>
+    <a href="#shop">Shop</a>
+  </nav>
+  <a href="#contatti" class="nav-cta magnetic"><span>Contatti</span></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Apri menu"><span></span><span></span></button>
+</header>
+
+<div class="mobile-nav" id="mobile-nav">
+  <nav>
+    <a href="#chi-siamo"><small>01</small>Chi siamo</a>
+    <a href="#storia"><small>02</small>Storia</a>
+    <a href="#volto"><small>03</small>Identità</a>
+    <a href="#obiettivi"><small>04</small>Obiettivi</a>
+    <a href="#vision"><small>05</small>Vision</a>
+    <a href="#lazzar"><small>06</small>LAZZAR-1</a>
+    <a href="#shop"><small>07</small>Shop</a>
+    <a href="#contatti"><small>08</small>Contatti</a>
+  </nav>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <canvas class="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-hud" aria-hidden="true">
+    <span class="hud-tl">LAT 41.9028° N<br>LON 12.4964° E</span>
+    <span class="hud-tr">ALT <b class="hud-alt">71.000</b> FT<br>SPD MACH <b class="hud-spd">4,25</b></span>
+    <span class="hud-bl">DSDAI // CANALE SICURO</span>
+    <span class="hud-br">REC ●</span>
+  </div>
+
+  <div class="hero-inner">
+    <p class="eyebrow hero-eyebrow">Difesa aerea · Made in Italy · Est. 2025</p>
+    <h1 class="hero-title">
+      <span class="line"><span>Non seguiamo</span></span>
+      <span class="line"><span>il progresso.</span></span>
+      <span class="line accent"><span>Lo pilotiamo.</span></span>
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-lead">Motori, prototipi e sistemi avanzati per il settore aeronautico-militare. Progettiamo oggi la sicurezza che l'Italia avrà domani.</p>
+      <div class="hero-actions">
+        <a href="#lazzar" class="btn btn-primary magnetic"><span>Scopri il LAZZAR-1</span><i>→</i></a>
+        <a href="#chi-siamo" class="btn btn-ghost magnetic"><span>Chi siamo</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-logo" aria-hidden="true">
+    <svg class="hero-badge" data-logo="badge" viewBox="110 642 174 174"><use href="#logo-badge"/></svg>
+  </div>
+
+  <a href="#chi-siamo" class="scroll-cue" aria-label="Scorri verso il basso"><span></span>Scroll</a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Aggiornare</span><b>✦</b><span>Proteggere</span><b>✦</b><span>Garantire</span><b>✦</b><span>Mach 6.35</span><b>✦</b><span>71.000 ft</span><b>✦</b><span>Made in Italy</span><b>✦</b>
+    <span>Aggiornare</span><b>✦</b><span>Proteggere</span><b>✦</b><span>Garantire</span><b>✦</b><span>Mach 6.35</span><b>✦</b><span>71.000 ft</span><b>✦</b><span>Made in Italy</span><b>✦</b>
+  </div>
+</div>
+
+<!-- ============ CHI SIAMO ============ -->
+<section class="section about" id="chi-siamo">
+  <div class="wrap">
+    <div class="sec-label"><span>01</span>Chi siamo</div>
+    <p class="statement" data-scrub-words>Siamo appena arrivati sul mercato, ma la nostra visione è chiara e radicata da anni. DOGFIGHT nasce da un unico, ambizioso principio: rivoluzionare la difesa aerea italiana, per una sicurezza nazionale senza compromessi.</p>
+
+    <div class="about-grid">
+      <figure class="about-photo" data-clip>
+        <img src="assets/jet.png" alt="Caccia di quinta generazione in virata con scie di condensazione" data-parallax>
+        <figcaption>REF. F-22 // STUDIO DI SUPERIORITÀ AEREA</figcaption>
+      </figure>
+      <div class="about-copy">
+        <h2 data-split>Siamo qui per creare, innovare e superare ogni limite.</h2>
+        <p data-fade>Non ci accontentiamo di seguire i progressi tecnologici: vogliamo definirli, stabilendo nuovi standard di eccellenza e innovazione. Crediamo nella capacità del nostro Paese di affermarsi come leader mondiale nel settore aeronautico-militare.</p>
+        <p data-fade>In un contesto globale dove la supremazia tecnologica può fare la differenza tra sicurezza e vulnerabilità, integriamo <strong>ricerca, innovazione e produzione</strong> in un unico sistema che valorizza le eccellenze nazionali.</p>
+        <ul class="pillars" data-stagger>
+          <li><b>T</b>Tecnologia</li>
+          <li><b>A</b>Affidabilità</li>
+          <li><b>R</b>Rapidità d'azione</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORIA (scroll orizzontale) ============ -->
+<section class="story" id="storia">
+  <div class="story-pin">
+    <div class="story-head wrap">
+      <div class="sec-label light"><span>02</span>La nostra storia</div>
+      <h2 data-split>Da un'idea ambiziosa<br>a una realtà concreta.</h2>
+    </div>
+    <div class="story-track">
+      <article class="founder-card">
+        <div class="founder-top">
+          <div class="founder-mark">GL</div>
+          <div>
+            <h3>Giacomo Larizza</h3>
+            <p class="role">Fondatore · Ingegnere aerospaziale</p>
+          </div>
+        </div>
+        <p>Laureato con eccellenza in ingegneria aerospaziale, Giacomo non ha voluto diventare un semplice pilota, ma un <em>visionario progettista</em>: un ideatore capace di incidere concretamente sul futuro delle forze aeree italiane.</p>
+        <blockquote>«Il vero progresso nasce dall'audacia e dalla determinazione di chi non si accontenta mai.»</blockquote>
+      </article>
+      <article class="chapter">
+        <span class="ch-num">I</span>
+        <h3>Ispirazione</h3>
+        <p>Guardiamo ai colossi mondiali dell'industria aerospaziale con un obiettivo chiaro: superarli e portare l'Italia ai vertici della difesa aerea globale.</p>
+      </article>
+      <article class="chapter">
+        <span class="ch-num">II</span>
+        <h3>Studio e ricerca</h3>
+        <p>Anni di studio per mettere le competenze al servizio della Nazione e rafforzare le difese italiane attraverso l'innovazione tecnologica.</p>
+      </article>
+      <article class="chapter">
+        <span class="ch-num">III</span>
+        <h3>Fondazione</h3>
+        <p>Nasce DOGFIGHT: creatività, ingegneria e visione a lungo termine. Ogni progetto, prototipo e motore spinge oltre i limiti del presente.</p>
+      </article>
+      <article class="chapter chapter-now">
+        <span class="ch-num">IV</span>
+        <h3>Oggi</h3>
+        <p>Investiamo costantemente in ricerca e sviluppo con le migliori menti del settore. Siamo pronti a scrivere un nuovo capitolo nella storia della difesa italiana.</p>
+      </article>
+    </div>
+    <div class="story-progress wrap" aria-hidden="true"><span></span></div>
+  </div>
+</section>
+
+<!-- ============ IDENTITÀ ============ -->
+<section class="section identity" id="volto">
+  <div class="wrap identity-grid">
+    <div class="identity-copy">
+      <div class="sec-label"><span>03</span>Il nostro volto</div>
+      <h2 data-split>Un marchio che è un manifesto d'intenti.</h2>
+      <p data-fade>La forma stilizzata del simbolo richiama il profilo iconico del <strong>B-2 Spirit</strong>, uno degli aerei più avanzati al mondo: la nostra aspirazione a spingerci oltre i limiti della tecnologia attuale.</p>
+      <p data-fade>Il carattere tipografico è una creazione esclusiva, disegnata per incastrarsi con le linee del simbolo. Ogni lettera riflette la cura che dedichiamo ai prototipi: <strong>equilibrio tra forma e funzione</strong>.</p>
+      <div class="palette" data-stagger>
+        <button class="swatch" style="--c:#13161b" data-copy="#13161B"><i></i><span>Acciaio scuro</span><code>#13161B</code></button>
+        <button class="swatch" style="--c:#4d5051" data-copy="#4D5051"><i></i><span>Fusoliera</span><code>#4D5051</code></button>
+        <button class="swatch" style="--c:#63acd2" data-copy="#63ACD2"><i></i><span>Azzurro quota</span><code>#63ACD2</code></button>
+        <button class="swatch" style="--c:#336488" data-copy="#336488"><i></i><span>Blu atmosfera</span><code>#336488</code></button>
+      </div>
+      <p class="note">Clicca un colore per copiarlo · Tra acciaio e cielo</p>
+    </div>
+    <div class="identity-stage">
+      <div class="stage-card">
+        <svg class="stage-badge" data-logo="badge" viewBox="110 642 174 174"><use href="#logo-badge"/></svg>
+        <svg class="stage-word" data-logo="word" viewBox="295 647 188 159"><use href="#logo-word"/></svg>
+        <span class="stage-tag t1">B-2 SPIRIT PROFILE</span>
+        <span class="stage-tag t2">FONT PROPRIETARIO</span>
+        <span class="stage-tag t3">GRIGIO + AZZURRO</span>
+      </div>
+      <ul class="logo-values"><li>Efficienza</li><li>Pulizia</li><li>Determinazione</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OBIETTIVI ============ -->
+<section class="section goals-sec" id="obiettivi">
+  <div class="wrap">
+    <div class="sec-label"><span>04</span>I nostri obiettivi</div>
+    <h2 class="goals-title" data-split>Tre verbi. Una promessa.</h2>
+    <div class="goals" data-stagger>
+      <article class="goal" data-tilt>
+        <span class="goal-num">01</span>
+        <h3>Aggiornare</h3>
+        <p>Siamo qui per superare i limiti tecnologici della nostra era.</p>
+        <svg class="goal-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6v36M10 20l14-14 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </article>
+      <article class="goal" data-tilt>
+        <span class="goal-num">02</span>
+        <h3>Proteggere</h3>
+        <p>Siamo qui per proteggervi da eventuali minacce ostili.</p>
+        <svg class="goal-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l16 6v12c0 10-7 17-16 20C15 40 8 33 8 23V11z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg>
+      </article>
+      <article class="goal" data-tilt>
+        <span class="goal-num">03</span>
+        <h3>Garantire</h3>
+        <p>Siamo qui per garantire la sicurezza dei cittadini italiani.</p>
+        <svg class="goal-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M16 24l6 6 11-12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISION ============ -->
+<section class="vision" id="vision">
+  <div class="vision-bg" aria-hidden="true">
+    <img src="assets/blueprint-b2.png" alt="" data-parallax="-12">
+    <img src="assets/blueprint-a10.png" alt="" data-parallax="12">
+  </div>
+  <div class="wrap vision-inner">
+    <div class="sec-label light"><span>05</span>Our vision</div>
+    <h2 class="vision-title" data-split>Questo è solo l'inizio di una grande avventura nei cieli.</h2>
+    <div class="vision-grid">
+      <div data-fade>
+        <h3>Al servizio della Nazione</h3>
+        <p>Il nostro interlocutore è il <strong>DSDAI</strong> — Dipartimento di Sviluppo-Difensivo Aereo Italiano — con cui condividiamo la missione di rafforzare l'autonomia strategica nazionale e garantire il predominio tecnologico nel settore aerospaziale.</p>
+        <p>Sicurezza, affidabilità e innovazione: ogni progetto nasce per proteggere, prevenire e anticipare le minacce del futuro.</p>
+      </div>
+      <div class="vision-quote" data-fade>
+        <p class="vq-to">Alle corporazioni internazionali →</p>
+      </div>
+    </div>
+  </div>
+  <div class="superior" aria-label="Siamo superiori. Perché non seguiamo il progresso. Lo pilotiamo.">
+    <p class="superior-big" aria-hidden="true">Siamo<br>superiori.</p>
+    <p class="superior-sub" aria-hidden="true">Perché non seguiamo il progresso. Lo pilotiamo.</p>
+  </div>
+</section>
+
+<!-- ============ LAZZAR-1 ============ -->
+<section class="lazzar" id="lazzar">
+  <div class="lazzar-pin">
+    <div class="wrap lazzar-head">
+      <div class="sec-label light"><span>06</span>Our mission · Prototipo di punta</div>
+      <h2 class="lazzar-title" aria-label="LAZZAR-1"><span>L</span><span>A</span><span>Z</span><span>Z</span><span>A</span><span>R</span><span>-</span><span>1</span></h2>
+    </div>
+    <div class="lazzar-stage">
+      <div class="radar-rings" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
+      <div class="speed-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <img class="lazzar-plane" src="assets/lazzar.png" alt="Render del prototipo LAZZAR-1, aereo da ricognizione ipersonico">
+      <span class="tag">● In fase sperimentale</span>
+      <div class="target" aria-hidden="true"><i></i><i></i><i></i><i></i><span>TRK 001 // LOCK</span></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p class="lazzar-lead" data-fade>Produciamo motori, prototipi e sistemi avanzati per contribuire allo sviluppo tecnologico e strategico dello Stato. Tra tutti i programmi in corso, uno rappresenta il culmine delle nostre ambizioni.</p>
+
+    <div class="stats" data-stagger>
+      <div class="stat"><span class="stat-val" data-count="6.35" data-dec="2">0</span><span class="stat-unit">Mach</span><span class="stat-label">Velocità massima</span><span class="stat-bar" style="--v:.95"></span></div>
+      <div class="stat"><span class="stat-val" data-count="4.25" data-dec="2">0</span><span class="stat-unit">Mach</span><span class="stat-label">Crociera · circa 5.170 km/h</span><span class="stat-bar" style="--v:.67"></span></div>
+      <div class="stat"><span class="stat-val" data-count="71000" data-dec="0">0</span><span class="stat-unit">ft</span><span class="stat-label">Quota operativa · oltre 21.600 m</span><span class="stat-bar" style="--v:.8"></span></div>
+      <div class="stat"><span class="stat-val" data-count="7000" data-dec="0">0</span><span class="stat-unit">km</span><span class="stat-label">Autonomia, con rifornimento in volo</span><span class="stat-bar" style="--v:.7"></span></div>
+    </div>
+
+    <div class="lazzar-detail">
+      <div data-fade>
+        <h3>Ricognizione di nuova generazione</h3>
+        <p>Frutto di un progetto sperimentale italo-europeo, LAZZAR-1 combina tecnologie stealth avanzate, materiali compositi ultraleggeri e un <strong>sistema di propulsione ibrido a doppio stadio</strong>, capace di operare sia in atmosfera che in orbita bassa.</p>
+        <p>Non sarà solo un mezzo di osservazione: sarà uno strumento strategico per la raccolta di informazioni, la deterrenza e il controllo dello spazio aereo in tempo reale. L'inizio di una nuova era nel volo ipersonico.</p>
+      </div>
+      <dl class="specs" data-stagger>
+        <div><dt>Equipaggio</dt><dd>1 pilota + IA tattica</dd></div>
+        <div><dt>Decollo</dt><dd>Corto (STOL)</dd></div>
+        <div><dt>Furtività</dt><dd>Invisibilità radar attiva</dd></div>
+        <div><dt>Comunicazioni</dt><dd>Quantistiche criptate</dd></div>
+        <div><dt>Propulsione</dt><dd>Ibrida a doppio stadio</dd></div>
+        <div><dt>Struttura</dt><dd>Compositi ultraleggeri</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOP ============ -->
+<section class="section shop" id="shop">
+  <div class="wrap">
+    <div class="shop-head">
+      <div>
+        <div class="sec-label"><span>07</span>Cosa vi offriamo</div>
+        <h2 data-split>Indossa DOGFIGHT.</h2>
+      </div>
+      <p data-fade>Ogni articolo è realizzato esclusivamente con materiali di alta qualità, rigorosamente italiani. Estetica e funzionalità, con il valore aggiunto del vero Made in Italy.</p>
+    </div>
+    <div class="products" data-stagger>
+      <article class="product" data-tilt>
+        <div class="product-img"><img src="assets/cap.png" alt="Cappello DOGFIGHT grigio con visiera nera e logo ricamato" loading="lazy"></div>
+        <div class="product-body">
+          <span class="product-cat">Abbigliamento</span>
+          <h3>Cappello DogFight</h3>
+          <p>Baseball cap grigio acciaio con visiera nera e logo ufficiale ricamato.</p>
+          <a class="btn btn-dark magnetic" href="mailto:dogfight.ita@gmail.com?subject=Ordine%20Cappello%20DogFight"><span>Richiedi info</span><i>→</i></a>
+        </div>
+      </article>
+      <article class="product" data-tilt>
+        <div class="product-img"><img src="assets/mug.png" alt="Tazza DOGFIGHT dorata con logo nero" loading="lazy"></div>
+        <div class="product-body">
+          <span class="product-cat">Casa &amp; ufficio</span>
+          <h3>Tazza DogFight</h3>
+          <p>Tazza in ceramica con finitura dorata a specchio e logo DOGFIGHT.</p>
+          <a class="btn btn-dark magnetic" href="mailto:dogfight.ita@gmail.com?subject=Ordine%20Tazza%20DogFight"><span>Richiedi info</span><i>→</i></a>
+        </div>
+      </article>
+      <article class="product product-soon" data-tilt>
+        <div class="product-img soon-img" aria-hidden="true"><svg><use href="#logo-badge"/></svg></div>
+        <div class="product-body">
+          <span class="product-cat">In arrivo</span>
+          <h3>Nuova collezione</h3>
+          <p>Abbigliamento e accessori per ogni momento della giornata.</p>
+          <span class="btn btn-outline"><span>Prossimamente</span></span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATTI ============ -->
+<section class="section contact" id="contatti">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="sec-label light"><span>08</span>Contatti</div>
+      <h2 data-split>Entra in formazione.</h2>
+      <p class="contact-lead" data-fade>Collaborazioni, stampa o informazioni sui nostri prodotti: scrivici, ti risponderemo al più presto.</p>
+      <ul class="channels" data-stagger>
+        <li><span>Web</span><a href="#hero">dogfight.com</a></li>
+        <li><span>Mail</span><a href="mailto:dogfight.ita@gmail.com">dogfight.ita@gmail.com</a></li>
+        <li><span>YouTube</span><b>DOGFIGHT</b></li>
+        <li><span>Instagram</span><b>DogFight</b></li>
+        <li><span>TikTok</span><b>_DOGFIGHT_</b></li>
+      </ul>
+    </div>
+    <form class="contact-form" id="contact-form" data-fade>
+      <div class="field"><input id="f-nome" name="nome" required autocomplete="name" placeholder=" "><label for="f-nome">Nome</label></div>
+      <div class="field"><input id="f-email" name="email" type="email" required autocomplete="email" placeholder=" "><label for="f-email">Email</label></div>
+      <div class="chips" role="radiogroup" aria-label="Argomento">
+        <label><input type="radio" name="argomento" value="Informazioni generali" checked><span>Info</span></label>
+        <label><input type="radio" name="argomento" value="Collaborazioni"><span>Collaborazioni</span></label>
+        <label><input type="radio" name="argomento" value="Shop"><span>Shop</span></label>
+        <label><input type="radio" name="argomento" value="Stampa"><span>Stampa</span></label>
+      </div>
+      <div class="field"><textarea id="f-msg" name="messaggio" rows="4" required placeholder=" "></textarea><label for="f-msg">Messaggio</label></div>
+      <button class="btn btn-primary magnetic" type="submit"><span>Invia messaggio</span><i>→</i></button>
+      <p class="form-note">Il messaggio verrà aperto nel tuo programma di posta.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <p class="footer-claim">La sicurezza è la nostra rotta.<span>by Giacomo Larizza</span></p>
+      <a href="#hero" class="to-top magnetic" aria-label="Torna su"><span>↑</span></a>
+    </div>
+    <div class="footer-logo" aria-hidden="true">
+      <svg class="fl-badge"><use href="#logo-badge"/></svg>
+      <svg class="fl-word"><use href="#logo-word"/></svg>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> DOGFIGHT</span>
+      <span>Azienda ipotetica a scopo didattico</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
