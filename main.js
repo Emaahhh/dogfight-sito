@@ -367,6 +367,8 @@ gsap.timeline({ scrollTrigger: { trigger: '.superior', start: 'top 85%', end: 'b
 /* ---------- LAZZAR-1: il prototipo entra in volo ---------- */
 (() => {
   const isMobile = innerWidth < 861;
+  const fly = { p: 0 };
+  window.LAZZAR_P = 0;
   const tl = gsap.timeline({
     scrollTrigger: { trigger: '.lazzar-pin', start: 'top top', end: isMobile ? '+=90%' : '+=160%', pin: true, scrub: 1 }
   });
@@ -374,6 +376,8 @@ gsap.timeline({ scrollTrigger: { trigger: '.superior', start: 'top 85%', end: 'b
     .fromTo('.lazzar-plane',
       { xPercent: -140, yPercent: 60, rotate: 14, scale: .45 },
       { xPercent: 0, yPercent: 8, rotate: -4, scale: 1, duration: 1.2, ease: 'power2.out' }, .1)
+    .fromTo(fly, { p: 0 }, { p: 1, duration: 1.2, ease: 'none', onUpdate: () => (window.LAZZAR_P = fly.p) }, .1)
+    .to(fly, { p: 1.3, duration: .6, ease: 'none', onUpdate: () => (window.LAZZAR_P = fly.p) }, 1.4)
     .to('.lazzar-title', { autoAlpha: .12, duration: .6 }, .6)
     .to('.target', { autoAlpha: 1, scale: 1, duration: .3 }, 1.2)
     .from('.target', { scale: 1.6, duration: .3 }, 1.2)
